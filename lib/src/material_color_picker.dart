@@ -16,6 +16,7 @@ class MaterialColorPicker extends StatefulWidget {
   final IconData iconSelected;
   final VoidCallback? onBack;
   final double? elevation;
+  final double? width;
 
   const MaterialColorPicker({
     Key? key,
@@ -32,6 +33,7 @@ class MaterialColorPicker extends StatefulWidget {
     this.spacing = 9.0,
     this.onBack,
     this.elevation,
+    this.width,
   }) : super(key: key);
 
   @override
@@ -177,7 +179,7 @@ class _MaterialColorPickerState extends State<MaterialColorPicker> {
         : _buildListShadesColor(_mainColor);
 
     // Size of dialog
-    final double width = MediaQuery.of(context).size.width * 0.8;
+    final double width = this.widget.width ?? MediaQuery.of(context).size.width * 0.8;
     // Number of circle per line, depend on width and circleSize
     final int nbrCircleLine = width ~/ (widget.circleSize + widget.spacing);
 
